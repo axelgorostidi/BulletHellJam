@@ -13,30 +13,55 @@ public class ProjectilesDraw : MonoBehaviour
     private bool isDrawing = false;
 	private GameObject currentLine;
 
+    [Header("Tint")]
+    [SerializeField] private float maxProjectileTint = 100f;
+    private float currentProjectileTint;
+    [SerializeField] private float rateOfUseTint = .1f;
+    [SerializeField] private float rateOfReplenishTint = .1f;
+
     void Start()
     {
         mousePositions = new List<Vector2>();
+        currentProjectileTint = maxProjectileTint;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("TINT: " + currentProjectileTint);
+
+        if(!isDrawing)
+        {
+            // Reestablecer tinta
+            currentProjectileTint += rateOfReplenishTint;
+            if(currentProjectileTint >= maxProjectileTint)
+                currentProjectileTint = maxProjectileTint;
+        }
+
+        // Se deja de dibujar
         if(Input.GetMouseButtonUp(0) && isDrawing == true){
             isDrawing = false;
             CreateBullets();
         }
 
-        if (Input.GetMouseButtonDown(0)){
+        // Se comienza a dibujar
+        if (Input.GetMouseButtonDown(0) && currentProjectileTint>0f){
             isDrawing = true;
 			CreateLine();
 		}
 
-		if (Input.GetMouseButton(0)){
+        // Se está dibujando
+		if (Input.GetMouseButton(0) && currentProjectileTint>0f){
 			Vector2 tempMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			if (Vector2.Distance(tempMousePosition, mousePositions[mousePositions.Count - 1]) > deltaDiscretize){
 				UpdateLine(tempMousePosition);
+
+                // Gastar tinta
+                currentProjectileTint -= rateOfUseTint;
 			}
 		}
+
+        UIController.instance.UpdateProjectileTint(currentProjectileTint, maxProjectileTint);
     }
 
     void CreateLine(){

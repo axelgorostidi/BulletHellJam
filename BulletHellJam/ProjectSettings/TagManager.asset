@@ -3,18 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - base
+  - Enemy
+  - Bullet
+  - BulletEnemy
+  - Shield
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemies
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - BulletPlayer
+  - BulletEnemy
+  - Shield
   - 
   - 
   - 

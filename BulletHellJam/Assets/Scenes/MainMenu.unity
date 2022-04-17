@@ -305,6 +305,7 @@ MonoBehaviour:
   userNameInputField: {fileID: 676525472}
   userNameErrorText: {fileID: 374126608}
   saveUserNameButton: {fileID: 887456269}
+  scoreboard: {fileID: 1142773081}
 --- !u!1 &353429798
 GameObject:
   m_ObjectHideFlags: 0

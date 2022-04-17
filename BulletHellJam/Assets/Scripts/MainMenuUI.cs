@@ -14,6 +14,8 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI userNameErrorText;
     [SerializeField] private Button saveUserNameButton;
 
+    [Header("Scoreboard")]
+    [SerializeField] private GameObject scoreboard;
 
     private void Start() 
     {
@@ -78,5 +80,6 @@ public class MainMenuUI : MonoBehaviour
         highScoreText.gameObject.SetActive(!aux);
         startButton.gameObject.SetActive(!aux);
         exitButton.gameObject.SetActive(!aux);
+        scoreboard.gameObject.SetActive(!aux);
     }
 }

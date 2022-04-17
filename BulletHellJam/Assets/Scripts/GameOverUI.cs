@@ -6,6 +6,7 @@ public class GameOverUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI gameTimeText;
     [SerializeField] private TextMeshProUGUI enemiesDestroyedText;
+    [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Button resetButton;
     [SerializeField] private Button mainMenuButton;
 
@@ -16,5 +17,6 @@ public class GameOverUI : MonoBehaviour
         mainMenuButton.onClick.AddListener(GameController.instance.GoToMainMenu);
         gameTimeText.SetText(TextController.GameOverUIGameTime());
         enemiesDestroyedText.SetText(TextController.GameOverUIEnemiesDestroyed());
+        scoreText.SetText(TextController.GameOverScoreText());
     }
 }

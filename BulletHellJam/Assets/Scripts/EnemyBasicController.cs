@@ -32,6 +32,7 @@ public class EnemyBasicController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision){
         if (collision.gameObject.tag == "Bullet")
         {
+            GameController.instance.AddEnemyDestroyed();
             Destroy(gameObject, 0f);
         }
     }

@@ -36,4 +36,40 @@ public static class TextController
         return minutesText+":"+secondsText;
     }
 
+    public static string UserNameError()
+    {
+        if(GameController.instance.textLanguage == GameController.TextLanguage.Spanish)
+        {
+            return "El nombre de usuario no puede estar vacío ni contener * o tener más de 10 caracteres";
+        }
+        else
+        {
+            return "The user name can't be empty, contain * or more than 10 characters";
+        }
+    }
+
+    public static string GameOverScoreText()
+    {
+        if(GameController.instance.textLanguage == GameController.TextLanguage.Spanish)
+        {
+            return "Puntaje: " + GameController.instance.GetFinalScore();
+        }
+        else
+        {
+            return "Score: " + GameController.instance.GetFinalScore();
+        }
+    }
+
+    public static string HighScoreText(int score)
+    {
+        if(GameController.instance.textLanguage == GameController.TextLanguage.Spanish)
+        {
+            return "Puntaje máximo: " + score;
+        }
+        else
+        {
+            return "High score: " + score;
+        }
+        
+    }
 }

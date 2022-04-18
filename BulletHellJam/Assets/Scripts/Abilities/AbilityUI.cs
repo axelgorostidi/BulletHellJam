@@ -7,6 +7,9 @@ public class AbilityUI : MonoBehaviour
 
     public void UpdateUI(float currentTime, float cooldown, bool isOnCooldown)
     {
-        cooldownSprite.fillAmount = 1 - currentTime / cooldown;
+        if(!isOnCooldown)
+            cooldownSprite.fillAmount = 0f;
+        else
+            cooldownSprite.fillAmount = 1 - currentTime / cooldown;
     }
 }

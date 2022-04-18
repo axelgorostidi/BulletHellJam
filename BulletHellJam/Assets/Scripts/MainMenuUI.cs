@@ -50,6 +50,7 @@ public class MainMenuUI : MonoBehaviour
             userNameText.SetText(userNameInputField.text);
             PlayerPrefs.SetString("UserName", userNameInputField.text);
             GameController.instance.userName = userNameInputField.text;
+            userNameErrorText.gameObject.SetActive(false);
         }
         else
         {

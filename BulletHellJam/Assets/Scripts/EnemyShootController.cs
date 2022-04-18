@@ -2,22 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShootController : MonoBehaviour
+public class EnemyShootController : Enemy
 {
     [SerializeField] GameObject center;
     [SerializeField] GameObject BulletEnemyShoot;
-    
-    private Rigidbody2D rb;
-    [SerializeField] float speed = 2f;
-    private Vector2 move;
-    [SerializeField] float life;
-    private Color originalColor;
-    [SerializeField] Color damageColor;
+
     [SerializeField] float DistanceToStop = 3.5f;
     private float timerToShoot = 0f;
     [SerializeField] float timeToShoot = 1f;
 
-    private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,13 +33,16 @@ public class EnemyShootController : MonoBehaviour
                 ShootController();
             }
         }
+        if (spriteRenderer.color != originalColor)
+        {
+            manageColorDamage();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision){
         if (collision.gameObject.tag == "Bullet")
         {
-            GameController.instance.AddEnemyDestroyed();
-            Destroy(gameObject, 0f);
+            Damage();
         }
     }
 
@@ -57,4 +53,5 @@ public class EnemyShootController : MonoBehaviour
             bullet.GetComponent<BulletEnemyController>().setDirection(move);
         }
     }
+
 }

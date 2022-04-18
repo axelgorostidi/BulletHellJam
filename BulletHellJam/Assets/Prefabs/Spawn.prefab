@@ -49,3 +49,4 @@ MonoBehaviour:
   timeToSpawn: 3
   EnemyBasic: {fileID: 2359961646793929716, guid: b71273802f357664aba9f23282671c0a, type: 3}
   EnemyShoot: {fileID: 7563544666307438254, guid: a40bef0c1f2e6c8468774dde87f7fac8, type: 3}
+  EnemyDiamond: {fileID: 2346472421812226246, guid: 80e7c88eb23274e4fbbbe92f51fb9e91, type: 3}

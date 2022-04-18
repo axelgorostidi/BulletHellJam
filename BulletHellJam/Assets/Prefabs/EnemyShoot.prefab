@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7563544666307438254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.0583408, y: -0.011970056, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -146,9 +146,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e6f95e91e841040af6d20b34b9bbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageAmount: 1
+  speed: 1
+  life: 7
+  hitboxRadius: 0.6
+  damageColor: {r: 0.9150943, g: 0.11654504, b: 0.16293788, a: 1}
+  colorTime: 0.1
+  currentColorTime: 0
   center: {fileID: 0}
   BulletEnemyShoot: {fileID: 2353992312878156317, guid: 9f51c12939890c2478185fb67e701314, type: 3}
-  speed: 2
-  life: 0
-  damageColor: {r: 0, g: 0, b: 0, a: 0}
   DistanceToStop: 4.5
+  timeToShoot: 1

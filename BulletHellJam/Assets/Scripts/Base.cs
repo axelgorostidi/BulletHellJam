@@ -23,10 +23,12 @@ public class Base : MonoBehaviour
         UIController.instance.UpdateBaseHP(currentHP, maxHP);
     }
 
-    public void Damage(int amount)
+    public void Damage(int amount, GameObject go)
     {
         currentHP -= amount;
         UIController.instance.UpdateBaseHP(currentHP, maxHP);
+        
+        Destroy(go, 0f);
 
         if(currentHP <= 0)
         {

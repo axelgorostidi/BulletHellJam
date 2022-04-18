@@ -17,7 +17,7 @@ public class EnemyDummy : MonoBehaviour
         transform.position += new Vector3(speed*Time.deltaTime, 0f, 0f);
         if(Base.instance.CheckCollision(transform.position, hitboxRadius))
         {
-            Base.instance.Damage(damageAmount);
+            Base.instance.Damage(damageAmount, gameObject);
         }
     }
 

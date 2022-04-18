@@ -13,6 +13,7 @@ public class SpawnController : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject EnemyBasic;
     [SerializeField] GameObject EnemyShoot;
+    [SerializeField] GameObject EnemyDiamond;
 
     void Start()
     {
@@ -38,13 +39,16 @@ public class SpawnController : MonoBehaviour
             case 2: 
                 Instantiate(EnemyShoot, transform.position, Quaternion.identity);
             break;
+            case 3:
+                Instantiate(EnemyDiamond, transform.position, Quaternion.identity);
+            break;
             default:
             break;
         }
     }
 
     
-    int SpawnControl()
+    int SpawnControl() //0 nada, 1 basico, 2 shoot, 3 diamond
     {
         if(timerToSpawn <= timeToSpawn){
             return 0;
@@ -56,7 +60,13 @@ public class SpawnController : MonoBehaviour
             return 1;
         }
         if(rand <= (dificulty+10)/3){
-            return 2;
+            rand = UnityEngine.Random.Range(0f, 100f);
+            if(rand <= 30f){
+                return 3;
+            }else{
+                return 2;
+            }
+           
         }
 
         return 0;

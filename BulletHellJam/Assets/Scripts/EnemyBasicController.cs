@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBasicController : MonoBehaviour
+public class EnemyBasicController : Enemy
 {
     [SerializeField] GameObject center;
     
-    private Rigidbody2D rb;
-    [SerializeField] float speed = 2f;
-    private Vector2 move;
-    [SerializeField] float life;
-    private Color originalColor;
-    [SerializeField] Color damageColor;
-    private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,13 +20,17 @@ public class EnemyBasicController : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(move.x * speed * Time.deltaTime, move.y * speed * Time.deltaTime, 0f);
+        if (spriteRenderer.color != originalColor)
+        {
+            manageColorDamage();
+        }
+        checkCollisionWhithPlayer();
     }
 
     void OnCollisionEnter2D(Collision2D collision){
         if (collision.gameObject.tag == "Bullet")
         {
-            GameController.instance.AddEnemyDestroyed();
-            Destroy(gameObject, 0f);
+            Damage();
         }
     }
 }

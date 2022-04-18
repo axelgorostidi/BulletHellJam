@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bulletBasicController : MonoBehaviour
+public class bulletBasicController : Bullet
 {
     public float speedBullet = 6f;
     private Rigidbody2D rb;
@@ -16,13 +16,13 @@ public class bulletBasicController : MonoBehaviour
     void Update()
     {
         transform.position += transform.right * (speedBullet * Time.deltaTime);
-        
-        //new Vector3(0f, (speedBullet * Time.deltaTime), 0f);
         Destroy(gameObject, 5f);
     }
 
-    public void setDirection(Vector2 dir){
-        transform.right = dir;
+    void OnCollisionEnter2D(Collision2D collision){
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject, 0f);
+        }
     }
-
 }

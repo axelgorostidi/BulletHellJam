@@ -82,4 +82,10 @@ public class MainMenuUI : MonoBehaviour
         exitButton.gameObject.SetActive(!aux);
         scoreboard.gameObject.SetActive(!aux);
     }
+
+    public void UpdateUI()
+    {
+        highScoreText.SetText(TextController.HighScoreText(PlayerPrefs.GetInt("HighScore", 0)));
+        userNameErrorText.SetText(TextController.UserNameError());
+    }
 }

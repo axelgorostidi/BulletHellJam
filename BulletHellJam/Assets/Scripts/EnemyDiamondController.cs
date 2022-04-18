@@ -12,6 +12,12 @@ public class EnemyDiamondController : Enemy
     private float timerToShoot = 0f;
     [SerializeField] float timeToShoot = 1f;
     // Start is called before the first frame update
+
+    [Header("Particles")]
+    [SerializeField] private GameObject particleTeleportingAway;
+    [SerializeField] private GameObject particleTeleportingIn;
+
+
     void Start()
     {
         center = GameObject.FindGameObjectWithTag("base");
@@ -41,6 +47,8 @@ public class EnemyDiamondController : Enemy
         float randY = UnityEngine.Random.Range(center.transform.position.y-50f, center.transform.position.x+50f);
         Vector3 randPos = new Vector3(randX, randY,0);
         if((randPos - center.transform.position).magnitude >= MinDistance && (randPos - center.transform.position).magnitude <= MaxDistance){
+            Instantiate(particleTeleportingAway, transform.position, Quaternion.identity);
+            Instantiate(particleTeleportingIn, randPos, Quaternion.identity);
             transform.position = randPos;
         }
     }

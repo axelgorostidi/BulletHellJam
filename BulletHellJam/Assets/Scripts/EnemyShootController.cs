@@ -11,12 +11,14 @@ public class EnemyShootController : Enemy
     private float timerToShoot = 0f;
     [SerializeField] float timeToShoot = 1f;
 
+    [SerializeField] private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         center = GameObject.FindGameObjectWithTag("base");
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         originalColor = spriteRenderer.color;
         move = (center.transform.position - transform.position).normalized;
     }
@@ -49,6 +51,7 @@ public class EnemyShootController : Enemy
     void ShootController(){
         float rand = UnityEngine.Random.Range(0f, 100f);
         if(rand <= 50f){
+            animator.SetBool("shooting", true);
             GameObject bullet = Instantiate(BulletEnemyShoot, transform.position, Quaternion.identity);
             bullet.GetComponent<BulletEnemyController>().setDirection(move);
         }

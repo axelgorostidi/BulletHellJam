@@ -161,3 +161,5 @@ MonoBehaviour:
   MinDistance: 3.5
   MaxDistance: 5
   timeToShoot: 1.2
+  particleTeleportingAway: {fileID: 490980291662893252, guid: 071cbcfbf358d9b45b926288d3f22baf, type: 3}
+  particleTeleportingIn: {fileID: 6410235217383293418, guid: eee2b698eab5cab408167ea3e78de566, type: 3}

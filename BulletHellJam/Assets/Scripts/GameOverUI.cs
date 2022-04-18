@@ -15,6 +15,11 @@ public class GameOverUI : MonoBehaviour
     {
         resetButton.onClick.AddListener(GameController.instance.ResetGame);
         mainMenuButton.onClick.AddListener(GameController.instance.GoToMainMenu);
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
         gameTimeText.SetText(TextController.GameOverUIGameTime());
         enemiesDestroyedText.SetText(TextController.GameOverUIEnemiesDestroyed());
         scoreText.SetText(TextController.GameOverScoreText());

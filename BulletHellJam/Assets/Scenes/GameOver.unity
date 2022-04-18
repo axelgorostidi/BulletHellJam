@@ -526,6 +526,7 @@ GameObject:
   - component: {fileID: 459811484}
   - component: {fileID: 459811486}
   - component: {fileID: 459811485}
+  - component: {fileID: 459811487}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -650,6 +651,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459811483}
   m_CullTransparentMesh: 1
+--- !u!114 &459811487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459811483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8a2661de5163c44abaab31613b0dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textSpanish: JUGAR DE NUEVO
+  textEnglish: PLAY AGAIN
+  textObject: {fileID: 459811485}
 --- !u!1 &465198678
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +761,7 @@ GameObject:
   - component: {fileID: 480961247}
   - component: {fileID: 480961249}
   - component: {fileID: 480961248}
+  - component: {fileID: 480961250}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -869,6 +886,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480961246}
   m_CullTransparentMesh: 1
+--- !u!114 &480961250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480961246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8a2661de5163c44abaab31613b0dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textSpanish: "MEN\xDA PRINCIPAL"
+  textEnglish: MAIN MENU
+  textObject: {fileID: 480961248}
 --- !u!1 &508939159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +1037,7 @@ GameObject:
   - component: {fileID: 809364248}
   - component: {fileID: 809364252}
   m_Layer: 5
-  m_Name: UI
+  m_Name: GameOverUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -86,6 +86,28 @@ public class GameController : MonoBehaviour
         SceneController.instance.LoadNewScene("GameOver", LoadSceneMode.Single);
     }
 
+    public void SetLanguageSpanish()
+    {
+        textLanguage = TextLanguage.Spanish;
+        UpdateUI();
+    }
+
+    public void SetLanguageEnglish()
+    {
+        textLanguage = TextLanguage.English;
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        GameObject mainMenuUI = GameObject.Find("MainMenuUI");
+        if(mainMenuUI!=null)
+            mainMenuUI.GetComponent<MainMenuUI>().UpdateUI();
+        GameObject gameOverUI = GameObject.Find("GameOverUI");
+        if(gameOverUI!=null)
+            gameOverUI.GetComponent<GameOverUI>().UpdateUI();
+    }
+
     public float GetCurrentGameTime()
     {
         return currentGameTime;

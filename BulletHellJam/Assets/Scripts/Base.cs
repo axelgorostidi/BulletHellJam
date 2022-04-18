@@ -1,4 +1,5 @@
 using UnityEngine;
+using EZCameraShake;
 
 public class Base : MonoBehaviour
 {
@@ -25,8 +26,9 @@ public class Base : MonoBehaviour
 
     public void Damage(int amount, GameObject go)
     {
+        CameraShaker.Instance.ShakeOnce(1f, 4f, 1f, 1f);
+
         currentHP -= amount;
-        UIController.instance.UpdateBaseHP(currentHP, maxHP);
         
         Destroy(go, 0f);
 
@@ -35,6 +37,8 @@ public class Base : MonoBehaviour
             currentHP = 0;
             GameController.instance.SetGameOver();
         }
+
+        UIController.instance.UpdateBaseHP(currentHP, maxHP);
     }
 
     private void OnDrawGizmos() 

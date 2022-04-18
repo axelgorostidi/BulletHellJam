@@ -2,21 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletEnemyController : Bullet
+public class BulletEnemyDiamondController : Bullet
 {
     [SerializeField] float speedBullet = 6f;
+    [SerializeField] GameObject center;
     private Rigidbody2D rb;
     private Vector2 direction;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        center = GameObject.FindGameObjectWithTag("base");
+        //float randX = UnityEngine.Random.Range(-400f, 400f);
+        //float randY = UnityEngine.Random.Range(-400f, 400f);
+        //rb.AddForce(new Vector2(randX,randY));
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.right * (speedBullet * Time.deltaTime);  
+
+        //Vector3 move = (center.transform.position - transform.position).normalized;
+        transform.position += transform.right * (speedBullet * Time.deltaTime)*2f;  
 
         if(Base.instance.CheckCollision(transform.position, hitboxRadius)) //vemos las colisiones con el jugador
         {
@@ -25,7 +32,7 @@ public class BulletEnemyController : Bullet
 
         Destroy(gameObject, 5f);
     }
-
+    
     protected void OnDrawGizmos() 
     {
         Gizmos.DrawWireSphere(transform.position, hitboxRadius);
@@ -37,5 +44,4 @@ public class BulletEnemyController : Bullet
             Destroy(gameObject, 0f);
         }
     }
-
 }

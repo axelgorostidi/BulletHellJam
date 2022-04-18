@@ -44,6 +44,9 @@ public class ShieldDraw : MonoBehaviour
 
         // Se deja de dibujar
         if(Input.GetMouseButtonUp(1) && isDrawing == true){
+            currentLine.tag = "Shield"; //para que colisionen solo cuando salga disparado
+            currentLine.layer = 9;
+            
             isDrawing = false;
             
             Vector2 middlePoint = lineRenderer.GetPosition((int)(lineRenderer.positionCount/2));
@@ -88,6 +91,7 @@ public class ShieldDraw : MonoBehaviour
 		lineRenderer.SetPosition(1, mousePositions[1]);
 
         edgeCollider.points = mousePositions.ToArray();
+        
     }
 
     void UpdateLine(Vector2 newMousePos){

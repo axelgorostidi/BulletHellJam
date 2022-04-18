@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7311397992102749123}
   - component: {fileID: -415704364754780871}
   - component: {fileID: -420222443740454395}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: LineShield
-  m_TagString: Shield
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

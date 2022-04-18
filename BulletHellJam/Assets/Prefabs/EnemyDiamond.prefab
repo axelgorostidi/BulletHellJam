@@ -157,7 +157,7 @@ MonoBehaviour:
   colorTime: 0.1
   currentColorTime: 0
   center: {fileID: 0}
-  BulletEnemyShoot: {fileID: 2353992312878156317, guid: 9f51c12939890c2478185fb67e701314, type: 3}
+  BulletEnemyShoot: {fileID: 1411163829353802303, guid: 9eec005d2647bd640aa3aca3aee85296, type: 3}
   MinDistance: 3.5
   MaxDistance: 5
   timeToShoot: 1.2

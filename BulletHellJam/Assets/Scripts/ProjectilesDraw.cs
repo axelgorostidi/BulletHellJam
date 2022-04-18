@@ -89,7 +89,9 @@ public class ProjectilesDraw : MonoBehaviour
     void CreateBullets(){
         Destroy(lineRenderer, 0f);
         //lineRenderer.material.color = new Color(0f,0f,0f,0f);
-
+        if(lineRenderer.positionCount <= 2){
+            return;
+        }
         for (int i = 0; i < lineRenderer.positionCount; i++){
             GameObject bullet = Instantiate(bulletPrefab, lineRenderer.GetPosition(i), Quaternion.identity);
             Vector2 dirBullet = new Vector2(lineRenderer.GetPosition(i).x-screenCenter.transform.position.x, lineRenderer.GetPosition(i).y-screenCenter.transform.position.y);

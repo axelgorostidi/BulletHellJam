@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour
             Destroy(this.gameObject);
 
         DontDestroyOnLoad(this);
+
+        Application.targetFrameRate = 60;
     }
 
     private void Start() {
@@ -57,7 +59,8 @@ public class GameController : MonoBehaviour
         isPlaying = true;
         enemiesDestroyed = 0;
         currentGameTime = 0f;
-        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        
+        SceneController.instance.LoadNewScene("Game", LoadSceneMode.Single);
     }
 
     public void ExitGame()
@@ -67,7 +70,7 @@ public class GameController : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        SceneController.instance.LoadNewScene("MainMenu", LoadSceneMode.Single);
     }
 
     public void SetGameOver()
@@ -80,7 +83,7 @@ public class GameController : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", score);
         }
-        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        SceneController.instance.LoadNewScene("GameOver", LoadSceneMode.Single);
     }
 
     public float GetCurrentGameTime()

@@ -26,6 +26,10 @@ public class UIController : MonoBehaviour
             Destroy(this);
     }
 
+    private void Start() {
+        UpdateEnemiesDestroyed(0);
+    }
+
 
     public void UpdateBaseHP(int currentHP, int maxHP)
     {

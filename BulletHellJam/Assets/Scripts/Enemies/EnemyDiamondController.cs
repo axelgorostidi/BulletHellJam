@@ -70,9 +70,12 @@ public class EnemyDiamondController : Enemy
             float randX = UnityEngine.Random.Range(center.transform.position.x-90f, center.transform.position.x+90f);
             float randY = UnityEngine.Random.Range(center.transform.position.y-50f, center.transform.position.x+50f);
             Vector3 randPos = new Vector3(randX, randY,0);
-            if((randPos - center.transform.position).magnitude >= MinDistance && (randPos - center.transform.position).magnitude <= MaxDistance){
+            if((randPos - center.transform.position).magnitude >= MinDistance && (randPos - center.transform.position).magnitude <= MaxDistance)
+            {
                 Instantiate(particleTeleportingAway, transform.position, Quaternion.identity);
                 Instantiate(particleTeleportingIn, randPos, Quaternion.identity);
+                AudioManager.instance.PlaySFX(AudioManager.instance.enemyTeleport);
+
                 transform.position = randPos;
                 successTeleport = 1;
             }
@@ -83,6 +86,9 @@ public class EnemyDiamondController : Enemy
             float rand = UnityEngine.Random.Range(0f, 100f);
             if(rand <= 50f){
                 GameObject bullet = Instantiate(BulletEnemyShoot, transform.position, Quaternion.identity);
+                
+                AudioManager.instance.PlaySFX(AudioManager.instance.enemyProjectile);
+
                 bullet.GetComponent<BulletEnemyDiamondController>().setDirection((center.transform.position-transform.position).normalized);
             }
         }

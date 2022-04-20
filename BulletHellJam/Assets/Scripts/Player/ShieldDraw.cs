@@ -70,6 +70,8 @@ public class ShieldDraw : MonoBehaviour
 
                 // Gastar tinta
                 currentShieldTint -= rateOfUseTint;
+
+                AudioManager.instance.PlaySFX(AudioManager.instance.playerShield);
 			}
 		}
 

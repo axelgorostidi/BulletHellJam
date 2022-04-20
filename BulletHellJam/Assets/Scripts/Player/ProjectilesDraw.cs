@@ -45,21 +45,31 @@ public class ProjectilesDraw : MonoBehaviour
         }
 
         // Se comienza a dibujar
-        if (Input.GetMouseButtonDown(0) && currentProjectileTint>0f){
-            isDrawing = true;
-			CreateLine();
-		}
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float dist = Vector2.Distance(mousePos, Base.instance.transform.position);
+        if(DrawLimit.instance!=null)
+        {
+            if (dist<DrawLimit.instance.GetCurrentDistanceToBase() && Input.GetMouseButtonDown(0) && currentProjectileTint>0f)
+            {
+                isDrawing = true;
+			    CreateLine();
+		    }
 
-        // Se está dibujando
-		if (Input.GetMouseButton(0) && currentProjectileTint>0f){
-			Vector2 tempMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			if (Vector2.Distance(tempMousePosition, mousePositions[mousePositions.Count - 1]) > deltaDiscretize){
-				UpdateLine(tempMousePosition);
+            // Se está dibujando
+            if (isDrawing && Input.GetMouseButton(0) && currentProjectileTint>0f){
+                Vector2 tempMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                // Gastar tinta
-                currentProjectileTint -= rateOfUseTint;
-			}
-		}
+                float distToBase = Vector2.Distance(tempMousePosition, Base.instance.transform.position);
+                if (distToBase<DrawLimit.instance.GetCurrentDistanceToBase() && Vector2.Distance(tempMousePosition, mousePositions[mousePositions.Count - 1]) > deltaDiscretize){
+                    UpdateLine(tempMousePosition);
+
+                    // Gastar tinta
+                    currentProjectileTint -= rateOfUseTint;
+
+                    AudioManager.instance.PlaySFX(AudioManager.instance.playerProjectiles);
+                }
+            }
+        }
 
         UIController.instance.UpdateProjectileTint(currentProjectileTint, maxProjectileTint);
     }

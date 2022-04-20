@@ -30,15 +30,21 @@ public class Base : MonoBehaviour
 
         currentHP -= amount;
         
-        Destroy(go, 0f);
+        if(go!=null)
+            Destroy(go, 0f);
 
         if(currentHP <= 0)
         {
             currentHP = 0;
+            UIController.instance.UpdateBaseHP(currentHP, maxHP);
+            AudioManager.instance.PlaySFX(AudioManager.instance.playerDestroyed);
             GameController.instance.SetGameOver();
         }
-
-        UIController.instance.UpdateBaseHP(currentHP, maxHP);
+        else
+        {
+            UIController.instance.UpdateBaseHP(currentHP, maxHP);
+            AudioManager.instance.PlaySFX(AudioManager.instance.playerDamaged);
+        }        
     }
 
     private void OnDrawGizmos() 

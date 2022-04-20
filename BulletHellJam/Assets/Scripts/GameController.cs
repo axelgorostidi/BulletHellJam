@@ -34,6 +34,8 @@ public class GameController : MonoBehaviour
         isPlaying = false;
         enemiesDestroyed = 0;
         currentGameTime = 0f;
+
+        AudioManager.instance.PlayMusic(AudioManager.instance.mainMenuMusic);
     }
 
     private void Update() 
@@ -61,6 +63,7 @@ public class GameController : MonoBehaviour
         currentGameTime = 0f;
         
         SceneController.instance.LoadNewScene("Game", LoadSceneMode.Single);
+        AudioManager.instance.PlayMusic(AudioManager.instance.gameMusic);
     }
 
     public void ExitGame()
@@ -71,6 +74,7 @@ public class GameController : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneController.instance.LoadNewScene("MainMenu", LoadSceneMode.Single);
+        AudioManager.instance.PlayMusic(AudioManager.instance.mainMenuMusic);
     }
 
     public void SetGameOver()
@@ -84,17 +88,12 @@ public class GameController : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", score);
         }
         SceneController.instance.LoadNewScene("GameOver", LoadSceneMode.Single);
+        AudioManager.instance.PlayMusic(AudioManager.instance.gameOverMusic);
     }
 
-    public void SetLanguageSpanish()
+    public void SetLanguageTo(TextLanguage language)
     {
-        textLanguage = TextLanguage.Spanish;
-        UpdateUI();
-    }
-
-    public void SetLanguageEnglish()
-    {
-        textLanguage = TextLanguage.English;
+        textLanguage = language;
         UpdateUI();
     }
 

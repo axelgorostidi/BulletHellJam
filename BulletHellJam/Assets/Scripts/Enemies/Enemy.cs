@@ -24,8 +24,15 @@ public class Enemy : MonoBehaviour
         currentColorTime = colorTime;
         if(life <= 0f){
             GameController.instance.AddEnemyDestroyed();
+            AudioManager.instance.PlaySFX(AudioManager.instance.enemyDestroyed);
+
+            if(DrawLimit.instance!=null)
+                DrawLimit.instance.IncreaseScale();
+                
             Destroy(gameObject, 0f);
         }
+
+        AudioManager.instance.PlaySFX(AudioManager.instance.enemyDamaged);
     }
 
     protected void manageColorDamage()

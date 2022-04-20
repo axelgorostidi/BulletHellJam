@@ -53,6 +53,9 @@ public class EnemyShootController : Enemy
         if(rand <= 50f){
             animator.SetBool("shooting", true);
             GameObject bullet = Instantiate(BulletEnemyShoot, transform.position, Quaternion.identity);
+            
+            AudioManager.instance.PlaySFX(AudioManager.instance.enemyProjectile);
+
             bullet.GetComponent<BulletEnemyController>().setDirection(move);
         }
     }

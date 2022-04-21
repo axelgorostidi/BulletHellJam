@@ -4,6 +4,9 @@ using TMPro;
 
 public class MainMenuUI : MonoBehaviour
 {
+    private float timer = 0f;
+    private float aux = 0.001f;
+    [SerializeField] private TextMeshProUGUI tecnometry;
     [SerializeField] private Button startButton;
     [SerializeField] private Button exitButton;
     [SerializeField] private TextMeshProUGUI highScoreText;
@@ -16,6 +19,7 @@ public class MainMenuUI : MonoBehaviour
 
     [Header("Scoreboard")]
     [SerializeField] private GameObject scoreboard;
+    
 
     private void Start() 
     {
@@ -38,6 +42,22 @@ public class MainMenuUI : MonoBehaviour
             userNameText.SetText(user);
             SetActiveUserNameUI(false);
         }
+    }
+
+    private void Update(){
+        timer += Time.deltaTime;
+        tecnometry.transform.localScale = new Vector3(tecnometry.transform.localScale.x+aux,tecnometry.transform.localScale.y+aux,1);
+        if(timer >= 5f){
+            
+            //float rand = UnityEngine.Random.Range(0f, 100f);
+            //tecnometry.color = new Color(255,0,rand,255);
+            aux *= -1;
+            timer = 0f;
+        }
+        
+        
+
+        Debug.Log(timer);
     }
 
     public void SaveUserName()

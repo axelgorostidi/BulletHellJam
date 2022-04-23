@@ -68,7 +68,7 @@ public class GameController : MonoBehaviour
 
     public void ExitGame()
     {
-        //SALIR
+        Application.Quit();
     }
 
     public void GoToMainMenu()

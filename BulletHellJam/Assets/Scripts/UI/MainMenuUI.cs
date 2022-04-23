@@ -57,7 +57,7 @@ public class MainMenuUI : MonoBehaviour
         
         
 
-        Debug.Log(timer);
+        //Debug.Log(timer);
     }
 
     public void SaveUserName()

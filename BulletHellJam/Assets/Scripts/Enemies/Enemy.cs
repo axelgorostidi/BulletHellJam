@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
             GameController.instance.AddEnemyDestroyed();
             AudioManager.instance.PlaySFX(AudioManager.instance.enemyDestroyed);
 
-            if(DrawLimit.instance!=null)
+            if(this.GetComponent<EnemyBasicController>()!=null && DrawLimit.instance!=null)
                 DrawLimit.instance.IncreaseScale();
                 
             Destroy(gameObject, 0f);

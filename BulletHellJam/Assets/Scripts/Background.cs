@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Background : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] List<Sprite> textures;
 
     [SerializeField] private float timeBtwTexture = .5f;
     private float currentTime = 0f;
 
     private int currentIndx;
+    private Image image;
 
-    private void Start() {
+    private void Start() 
+    {
+        image = GetComponent<Image>();
         currentIndx = Random.Range(0,4);
     }
 
@@ -29,6 +31,6 @@ public class Background : MonoBehaviour
     private void ChangeTexture()
     {
         currentIndx += 1;
-        spriteRenderer.sprite = textures[(int)currentIndx%4];
+        image.sprite = textures[(int)currentIndx%4];
     }
 }

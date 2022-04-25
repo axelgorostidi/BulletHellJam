@@ -17,7 +17,8 @@ public class SpawnController : MonoBehaviour
 
     void Start()
     {
-        
+        dificulty = 0f;
+        timer = 0f;
     }
 
     // Update is called once per frame

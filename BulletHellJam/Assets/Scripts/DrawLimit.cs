@@ -9,6 +9,8 @@ public class DrawLimit : MonoBehaviour
         private float currentScale;
 
         [SerializeField] private float rateOfDecrease = 1f;
+        [SerializeField] private float timeToDecrease = 0.01f;
+        private float currentTimeToDecrease = 0f;
         [SerializeField] private float rateOfIncrease = 3f;
         [SerializeField] private GameObject measurePoint;
         private float currentDistanceToBase;
@@ -30,7 +32,15 @@ public class DrawLimit : MonoBehaviour
 
         private void Update() 
         {
-            StartCoroutine(DecreaseScale());
+            //StartCoroutine(DecreaseScale());
+
+            currentTimeToDecrease += Time.deltaTime;
+            if(currentTimeToDecrease >= timeToDecrease)
+            {
+                currentScale -= rateOfDecrease;
+                transform.localScale = new Vector3(currentScale, currentScale, 1f);
+                currentTimeToDecrease = 0f;
+            }
 
             if(currentScale <= 0f)
             {

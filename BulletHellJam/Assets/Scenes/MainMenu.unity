@@ -2238,6 +2238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 5934792213719356324, guid: 879e98d8f997a9141b342f28592bb35c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5934792213719356326, guid: 879e98d8f997a9141b342f28592bb35c, type: 3}
       propertyPath: textLanguage
       value: 1
@@ -5999,6 +6003,10 @@ PrefabInstance:
     - target: {fileID: 3464816870125776916, guid: ecc61d9d609d60c47bc686adce033280, type: 3}
       propertyPath: m_Name
       value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464816870125776916, guid: ecc61d9d609d60c47bc686adce033280, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecc61d9d609d60c47bc686adce033280, type: 3}

@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialScale: 6
-  rateOfDecrease: 0.005
+  rateOfDecrease: 0.003
+  timeToDecrease: 0.01
   rateOfIncrease: 0.5
   measurePoint: {fileID: 7942692907888454567}

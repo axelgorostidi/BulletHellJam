@@ -9,6 +9,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tecnometry;
     [SerializeField] private Button startButton;
     [SerializeField] private Button exitButton;
+    [SerializeField] private Button tutorialButton;
     [SerializeField] private TextMeshProUGUI highScoreText;
     [SerializeField] private TextMeshProUGUI userNameText;
 
@@ -19,7 +20,12 @@ public class MainMenuUI : MonoBehaviour
 
     [Header("Scoreboard")]
     [SerializeField] private GameObject scoreboard;
-    
+
+    [Header("Tutorial")]
+    [SerializeField] private GameObject canvasTutorial;
+    [SerializeField] private GameObject tutorialImageSpanish;
+    [SerializeField] private GameObject tutorialImageEnglish;
+
 
     private void Start() 
     {
@@ -102,11 +108,28 @@ public class MainMenuUI : MonoBehaviour
         startButton.gameObject.SetActive(!aux);
         exitButton.gameObject.SetActive(!aux);
         scoreboard.gameObject.SetActive(!aux);
+        tutorialButton.gameObject.SetActive(!aux);
     }
 
     public void UpdateUI()
     {
         highScoreText.SetText(TextController.HighScoreText(PlayerPrefs.GetInt("HighScore", 0)));
         userNameErrorText.SetText(TextController.UserNameError());
+    }
+
+    public void ShowTutorial()
+    {
+        canvasTutorial.SetActive(true);
+        
+        if(GameController.instance.textLanguage == GameController.TextLanguage.Spanish)
+        {
+            tutorialImageSpanish.SetActive(true);
+            tutorialImageEnglish.SetActive(false);
+        }
+        else
+        {
+            tutorialImageSpanish.SetActive(false);
+            tutorialImageEnglish.SetActive(true);
+        }
     }
 }

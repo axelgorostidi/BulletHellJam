@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
     }
 
     private void Start() {
-        textLanguage = TextLanguage.Spanish;
+        textLanguage = TextLanguage.English;
         isPlaying = false;
         enemiesDestroyed = 0;
         currentGameTime = 0f;
